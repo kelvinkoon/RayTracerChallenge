@@ -67,11 +67,8 @@ class Tuple final
         bool isVector() const;
 
     private:
-        float x_;
-
-        float y_;
-
-        float z_;
-
-        float w_;
+        float x_, y_, z_, w_;
 };
+
+Tuple Point(float x, float y, float z);
+Tuple Vector(float x, float y, float z);
