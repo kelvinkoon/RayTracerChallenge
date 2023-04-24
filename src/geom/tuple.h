@@ -70,5 +70,52 @@ class Tuple final
         float x_, y_, z_, w_;
 };
 
+/**
+ * Returns a Point (ie. 'w'=1.0)
+ *
+ * @param x the x value of the Point
+ * @param y the y value of the Point
+ * @param z the z value of the Point
+ */
 Tuple Point(float x, float y, float z);
+
+/**
+ * Returns a Vector (ie. 'w'=0.0)
+ *
+ * @param x the x value of the Vector
+ * @param y the y value of the Vector
+ * @param z the z value of the Vector
+ */
 Tuple Vector(float x, float y, float z);
+
+/**
+ * Compares two Tuples for equality
+ *
+ * @param a the first Tuple
+ * @param b the second Tuple
+ */
+bool operator==(const Tuple &a, const Tuple &b);
+
+/**
+ * Compares two Tuples for inequality
+ *
+ * @param a the first Tuple
+ * @param b the second Tuple
+ */
+bool operator!=(const Tuple &a, const Tuple &b);
+
+/**
+ * Adds two Tuples (ie. Vector and Point)
+ *
+ * @param a the first Tuple
+ * @param b the second Tuple
+ */
+Tuple operator+(const Tuple &a, const Tuple &b);
+
+/**
+ * Subtract two Tuples (ie. Vector and Point)
+ *
+ * @param a the first Tuple
+ * @param b the second Tuple
+ */
+Tuple operator-(const Tuple &a, const Tuple &b);
