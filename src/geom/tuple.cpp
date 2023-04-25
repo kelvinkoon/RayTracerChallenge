@@ -6,12 +6,7 @@
 Tuple::Tuple() : x_(0.0), y_(0.0), z_(0.0), w_(0.0) {}
 
 Tuple::Tuple(float x, float y, float z, float w) : 
-    x_(x), y_(y), z_(z), w_(w) {
-        if (!(epsilonEqual(w_, W_POINT) || epsilonEqual(w_, W_VECTOR))) {
-            throw std::invalid_argument("Tuple 'w' must be either 0.0 or 1.0, given: " +
-                std::to_string(w));
-        }
-    }
+    x_(x), y_(y), z_(z), w_(w) {}
 
 float Tuple::x() const
 {
@@ -84,5 +79,35 @@ Tuple operator-(const Tuple &a, const Tuple &b)
         a.y() - b.y(),
         a.z() - b.z(),
         a.w() - b.w()
+    );
+}
+
+Tuple operator-(const Tuple &a)
+{
+    return Tuple(
+        -a.x(),
+        -a.y(),
+        -a.z(),
+        -a.w()
+    );
+}
+
+Tuple operator*(const Tuple &a, const float &b)
+{
+    return Tuple(
+        a.x()*b,
+        a.y()*b,
+        a.z()*b,
+        a.w()*b
+    );
+}
+
+Tuple operator/(const Tuple &a, const float &b)
+{
+    return Tuple(
+        a.x()/b,
+        a.y()/b,
+        a.z()/b,
+        a.w()/b
     );
 }

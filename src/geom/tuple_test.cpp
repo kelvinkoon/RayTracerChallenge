@@ -36,10 +36,6 @@ TEST(CreateTupleTests, vector_custom_constructor) {
     EXPECT_EQ(p.w(), t.w());
 }
 
-TEST(CreateTupleTests, tuple_invalid_input) {
-    EXPECT_THROW(Tuple(1, 2, 3, 3), std::invalid_argument);
-}
-
 // Pg 4
 TEST(TupleIsComparisonTests, tuple_is_point_vector_test) {
     Tuple p = Tuple(4.3, -4.2, 3.1, 1.0);
@@ -101,4 +97,51 @@ TEST(TupleOperatorTests, subtract_two_vectors_test) {
     EXPECT_EQ(sub_v.y(), expected_v.y());
     EXPECT_EQ(sub_v.z(), expected_v.z());
     EXPECT_EQ(sub_v.w(), expected_v.w());
+}
+
+// Pg 7
+TEST(TupleOperatorTests, negate_tuple_test) {
+    Tuple zero_v = Vector(0, 0, 0);
+    Tuple v = Vector(1, -2, 3);
+    Tuple sub_v = zero_v - v;
+    Tuple expected_sub_v = Vector(-1, 2, -3);
+    EXPECT_EQ(sub_v.x(), expected_sub_v.x());
+    EXPECT_EQ(sub_v.y(), expected_sub_v.y());
+    EXPECT_EQ(sub_v.z(), expected_sub_v.z());
+    EXPECT_EQ(sub_v.w(), expected_sub_v.w());
+    Tuple neg_v = -Tuple(1, -2, 3, -4);
+    Tuple expected_neg_v = Tuple(-1, 2, -3, 4);
+    EXPECT_EQ(neg_v.x(), expected_neg_v.x());
+    EXPECT_EQ(neg_v.y(), expected_neg_v.y());
+    EXPECT_EQ(neg_v.z(), expected_neg_v.z());
+    EXPECT_EQ(neg_v.w(), expected_neg_v.w());
+}
+
+// Pg 8
+TEST(TupleOperatorTests, multiply_tuple_test) {
+    Tuple t = Tuple(1, -2, 3, -4);
+    Tuple mult_scalar_t = t*3.5;
+    Tuple expected_scalar_t = Tuple(3.5, -7, 10.5, -14);
+    EXPECT_EQ(mult_scalar_t.x(), expected_scalar_t.x());
+    EXPECT_EQ(mult_scalar_t.y(), expected_scalar_t.y());
+    EXPECT_EQ(mult_scalar_t.z(), expected_scalar_t.z());
+    EXPECT_EQ(mult_scalar_t.w(), expected_scalar_t.w());
+
+    Tuple mult_fraction_t = t*0.5;
+    Tuple expected_fraction_t = Tuple(0.5, -1, 1.5, -2);
+    EXPECT_EQ(mult_fraction_t.x(), expected_fraction_t.x());
+    EXPECT_EQ(mult_fraction_t.y(), expected_fraction_t.y());
+    EXPECT_EQ(mult_fraction_t.z(), expected_fraction_t.z());
+    EXPECT_EQ(mult_fraction_t.w(), expected_fraction_t.w());
+}
+
+// Pg 8
+TEST(TupleOperatorTests, divide_tuple_test) {
+    Tuple t = Tuple(1, -2, 3, -4);
+    Tuple div_scalar_t = t/2;
+    Tuple expected_scalar_t = Tuple(0.5, -1, 1.5, -2);
+    EXPECT_EQ(div_scalar_t.x(), expected_scalar_t.x());
+    EXPECT_EQ(div_scalar_t.y(), expected_scalar_t.y());
+    EXPECT_EQ(div_scalar_t.z(), expected_scalar_t.z());
+    EXPECT_EQ(div_scalar_t.w(), expected_scalar_t.w());
 }

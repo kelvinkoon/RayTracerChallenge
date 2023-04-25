@@ -119,3 +119,26 @@ Tuple operator+(const Tuple &a, const Tuple &b);
  * @param b the second Tuple
  */
 Tuple operator-(const Tuple &a, const Tuple &b);
+
+/**
+ * Negates a Tuple
+ *
+ * @param a the Tuple to negate
+ */
+Tuple operator-(const Tuple &a);
+
+/**
+ * Multiply a Tuple and scalar
+ *
+ * @param a the Tuple to multiply
+ * @param b the scalar value
+ */
+Tuple operator*(const Tuple &a, const float &b);
+
+/**
+ * Divide a Tuple and scalar
+ *
+ * @param a the Tuple to divide
+ * @param b the scalar value
+ */
+Tuple operator/(const Tuple &a, const float &b);
