@@ -12,6 +12,9 @@ cc_library(
 cc_test(
     name = "tuple_test",
     srcs = ["tuple_test.cpp"],
-    deps = ["@com_google_googletest//:gtest_main",
-            ":tuple"]
+    deps = [
+        "@com_google_googletest//:gtest_main",
+        ":tuple",
+        "//math:utils"
+    ]
 )

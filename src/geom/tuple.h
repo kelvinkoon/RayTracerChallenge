@@ -66,6 +66,34 @@ class Tuple final
          */
         bool isVector() const;
 
+        /**
+         * Returns magnitude / length of the Tuple
+         *
+         * @return the magnitude / length of the Tuple
+         */
+        float magnitude() const;
+
+        /**
+         * Returns the normalized Tuple
+         *
+         * @return the normalized Tuple
+         */
+        Tuple normalize() const;
+
+        /**
+         * Returns the dot product between the Tuple and another Tuple
+         *
+         * @return the dot product between the Tuple and another Tuple
+         */
+        float dot(Tuple a) const;
+
+        /**
+         * Returns the cross product between the Tuple and another Tuple
+         *
+         * @return the cross product between the Tuple and the another Tuple
+         */
+        Tuple cross(Tuple a) const;
+
     private:
         float x_, y_, z_, w_;
 };

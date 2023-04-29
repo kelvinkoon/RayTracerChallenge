@@ -1,6 +1,7 @@
-#include "geom/tuple.h"
-
+#include <math.h>
 #include <gtest/gtest.h>
+#include "geom/tuple.h"
+#include "math/utils.h"
 
 TEST(CreateTupleTests, tuple_default_constructor) {
     Tuple t = Tuple();
@@ -144,4 +145,56 @@ TEST(TupleOperatorTests, divide_tuple_test) {
     EXPECT_EQ(div_scalar_t.y(), expected_scalar_t.y());
     EXPECT_EQ(div_scalar_t.z(), expected_scalar_t.z());
     EXPECT_EQ(div_scalar_t.w(), expected_scalar_t.w());
+}
+
+// Pg 8
+TEST(TupleMagnitudeTests, magnitude_tuple_test) {
+    Tuple v = Vector(1, 0, 0);
+    float expected_mag = 1;
+    EXPECT_EQ(v.magnitude(), expected_mag);
+
+    v = Vector(0, 1, 0);
+    EXPECT_EQ(v.magnitude(), expected_mag);
+
+    v = Vector(0, 0, 1);
+    EXPECT_EQ(v.magnitude(), expected_mag);
+
+    v = Vector(1, 2, 3);
+    expected_mag = sqrt(14);
+    EXPECT_EQ(v.magnitude(), expected_mag);
+
+    v = Vector(-1, -2, -3);
+    expected_mag = sqrt(14);
+    EXPECT_EQ(v.magnitude(), expected_mag);
+}
+
+// Pg 10
+TEST(TupleNormalizeTests, normalize_tuple_test) {
+    Tuple v = Vector(4, 0, 0);
+    Tuple expected_v = Vector(1, 0, 0);
+    EXPECT_EQ(v.normalize(), expected_v);
+
+    v = Vector(1, 2, 3);
+    expected_v = Vector(1/sqrt(14), 2/sqrt(14), 3/sqrt(14));
+    Tuple norm_v = v.normalize();
+    EXPECT_EQ(norm_v, expected_v);
+    EXPECT_TRUE(epsilonEqual(norm_v.magnitude(), 1));
+}
+
+// Pg 10
+TEST(TupleDotTests, dot_tuple_test) {
+    Tuple a = Vector(1, 2, 3);
+    Tuple b = Vector(2, 3, 4);
+    float expected_dot = 20;
+    EXPECT_EQ(a.dot(b), expected_dot);
+}
+
+// Pg 10
+TEST(TupleCrossTests, cross_tuple_test) {
+    Tuple a = Vector(1, 2, 3);
+    Tuple b = Vector(2, 3, 4);
+    Tuple expected_ab_v = Vector(-1, 2, -1);
+    Tuple expected_ba_v = Vector(1, -2, 1);
+    EXPECT_EQ(a.cross(b), expected_ab_v);
+    EXPECT_EQ(b.cross(a), expected_ba_v);
 }
