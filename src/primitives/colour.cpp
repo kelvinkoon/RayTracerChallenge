@@ -1,5 +1,5 @@
-#include "colour/colour.h"
-#include "math/utils.h"
+#include "primitives/colour.h"
+#include "primitives/math.h"
 
 Colour::Colour() : r_(0.0), g_(0.0), b_(0.0) {}
 

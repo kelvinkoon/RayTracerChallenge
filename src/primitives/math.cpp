@@ -1,5 +1,5 @@
-#include "math/utils.h"
-#include "math/constants.h"
+#include "primitives/math.h"
+#include "primitives/math_constants.h"
 #include <cmath>
 
 bool epsilonEqual(float a, float b)

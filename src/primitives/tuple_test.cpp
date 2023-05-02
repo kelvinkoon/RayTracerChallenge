@@ -1,7 +1,7 @@
 #include <math.h>
 #include <gtest/gtest.h>
-#include "geom/tuple.h"
-#include "math/utils.h"
+#include "primitives/tuple.h"
+#include "primitives/math.h"
 
 TEST(CreateTupleTests, tuple_default_constructor) {
     Tuple t = Tuple();

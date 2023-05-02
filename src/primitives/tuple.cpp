@@ -1,8 +1,8 @@
 #include <stdexcept>
 #include <string>
 #include <math.h>
-#include "geom/tuple.h"
-#include "math/utils.h"
+#include "primitives/tuple.h"
+#include "primitives/math.h"
 
 Tuple::Tuple() : x_(0.0), y_(0.0), z_(0.0), w_(0.0) {}
 

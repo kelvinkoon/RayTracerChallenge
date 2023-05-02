@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "colour/colour.h"
-#include "math/utils.h"
+#include "primitives/colour.h"
+#include "primitives/math.h"
 
 TEST(CreateColourTests, colour_default_constructor) {
     Colour c = Colour();

@@ -1,4 +1,4 @@
-#include "math/utils.h"
+#include "primitives/math.h"
 
 #include <gtest/gtest.h>
 
