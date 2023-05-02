@@ -15,7 +15,7 @@ cc_test(
     deps = [
         "@com_google_googletest//:gtest_main",
         ":tuple",
-        ":math"
+        "//test_utils:test_utils"
     ]
 )
 
@@ -57,6 +57,6 @@ cc_test(
     deps = [
         "@com_google_googletest//:gtest_main",
         ":colour",
-        "math",
+        "//test_utils:test_utils"
     ]
 )

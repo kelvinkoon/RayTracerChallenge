@@ -1,20 +1,20 @@
 #include <gtest/gtest.h>
 #include "primitives/colour.h"
-#include "primitives/math.h"
+#include "test_utils/test_utils.h"
 
 TEST(CreateColourTests, colour_default_constructor) {
     Colour c = Colour();
-    EXPECT_TRUE(epsilonEqual(0, c.red()));
-    EXPECT_TRUE(epsilonEqual(0, c.green()));
-    EXPECT_TRUE(epsilonEqual(0, c.blue()));
+    EXPECT_TRUE(testEpsilonEqual(0, c.red()));
+    EXPECT_TRUE(testEpsilonEqual(0, c.green()));
+    EXPECT_TRUE(testEpsilonEqual(0, c.blue()));
 }
 
 // Pg 16
 TEST(CreateColourTests, colour_custom_constructor) {
     Colour c = Colour(-0.5, 0.4, 1.7);
-    EXPECT_TRUE(epsilonEqual(-0.5, c.red()));
-    EXPECT_TRUE(epsilonEqual(0.4, c.green()));
-    EXPECT_TRUE(epsilonEqual(1.7, c.blue()));
+    EXPECT_TRUE(testEpsilonEqual(-0.5, c.red()));
+    EXPECT_TRUE(testEpsilonEqual(0.4, c.green()));
+    EXPECT_TRUE(testEpsilonEqual(1.7, c.blue()));
 }
 
 TEST(ColourOperatorTests, colour_equality_tests) {
